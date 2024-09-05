@@ -25,13 +25,14 @@ class DatabaseSeeder extends Seeder
             'domain' => 'demo.localhost', // Adjust field names as necessary
         ]);
 
-        Tenant::query()->get()->each(function (Tenant $tenant) {
-           User::factory()->create(
-            [
-                'name' => 'Demo',
-                'email'=> 'demo@localhost.com',
-            ]
-           );
-        });
+        // // Create users and associate them with each tenant
+        // Tenant::all()->each(function (Tenant $tenant) {
+        //     User::factory()->create([
+        //         'name' => 'Demo',
+        //         'email' => 'demo@localhost.com',
+        //         // Associate user with the tenant if applicable
+        //         // e.g., 'tenant_id' => $tenant->id,
+        //     ]);
+        // });
     }
 }
